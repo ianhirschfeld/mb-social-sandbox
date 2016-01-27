@@ -8,11 +8,13 @@ gem 'awesome_print'
 gem 'clearance'
 gem 'jbuilder'
 gem 'jquery-rails'
+gem 'mini_fb'
 gem 'normalize-rails'
 gem 'pg'
 gem 'puma'
 gem 'rack-timeout'
 gem 'sass-rails'
+gem 'simple_form'
 gem 'uglifier'
 
 group :production do
@@ -20,6 +22,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'better_errors'
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'rspec-rails'

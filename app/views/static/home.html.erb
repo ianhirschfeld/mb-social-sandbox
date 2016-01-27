@@ -1,0 +1,28 @@
+<h1>MB Social Test</h1>
+
+<% if signed_in? %>
+
+  <%= current_user.email %>
+  <%= button_to "Sign out", sign_out_path, method: :delete %>
+
+  <hr />
+
+  <%= simple_form_for :user, url: message_users_path, method: :post do |f| %>
+    <%= f.input :message, input_html: { value: nil } %>
+
+    <h4>Facebook</h4>
+    <% if current_user.facebook_access_token.present? %>
+      <%= f.input :post_to_facebook, input_html: { checked: false }, as: :boolean %>
+      <%= f.input :facebook_account, collection: @facebook_accounts, selected: current_user.last_facebook_account %>
+    <% else %>
+      <%= link_to "Auth with Facebook", @facebook_auth_url %>
+    <% end %>
+
+    <%= f.button :submit, 'Post' %>
+  <% end %>
+
+<% else %>
+
+  <%= link_to "Sign in", sign_in_path %>
+
+<% end %>
