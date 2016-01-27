@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.3.0'
-gem 'rails', '4.2.0'
+gem 'rails', '~> 4.2.5'
 
 gem 'autoprefixer-rails'
 gem 'awesome_print'
