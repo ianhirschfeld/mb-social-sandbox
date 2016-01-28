@@ -1,16 +1,21 @@
 class UsersController < ApplicationController
 
   def message
+    @message = params[:user][:message]
     post_to_facebook = params[:user][:post_to_facebook]
+    current_user.update_attributes(posted_to_facebook_lasttime: post_to_facebook == '1')
     if post_to_facebook.present? && post_to_facebook == '1'
       if facebook_account = params[:user][:facebook_account].presence
         # TODO: Post to Facebook
         if facebook_account == '0'
           # Post to personal feed
-        elsif current_user.facebook_groups.exists?(group_id: facebook_account)
+          @success = 'Sucessfully posted to your personal Facebook feed.'
+        elsif group = current_user.facebook_groups.find_by(group_id: facebook_account)
           # Post to group
-        elsif current_user.facebook_pages.exists?(page_id: facebook_account)
+          @success = "Sucessfully posted to the #{group.name} Facebook group."
+        elsif page = current_user.facebook_pages.find_by(page_id: facebook_account)
           # Post to page
+          @success = "Sucessfully posted to the #{page.name} Facebook page."
         end
         current_user.update_attributes(last_facebook_account: facebook_account)
       end

@@ -1,1 +1,27 @@
-Posted!
+<h1 class="text-center">MB Social Test</h1>
+
+<% if signed_in? %>
+
+  <div class="float-r">
+    <%= current_user.email %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="display-ib"><%= button_to "Sign out", sign_out_path, method: :delete, class: 'button' %></div>
+  </div>
+  <div class="clearfix"></div>
+
+  <br />
+  <hr />
+  <br />
+
+  <h2><%= @success %></h2>
+  <br />
+  <p>Message:</p>
+  <p><%= @message %></p>
+
+  <br />
+
+  <%= link_to raw('&larr; Back to home'), root_path %>
+
+<% else %>
+
+  <%= link_to "Sign in", sign_in_path %>
+
+<% end %>

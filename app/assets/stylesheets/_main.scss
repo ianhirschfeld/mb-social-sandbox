@@ -1,0 +1,143 @@
+$blue: #0084b4;
+$white: #fff;
+$black: #595a5b;
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  background: $blue;
+  color: $white;
+  font-family: 'Avenir', 'Helvetica', sans-serif;
+  font-size: 15px;
+}
+
+.clearfix {
+  &:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.page-content {
+  max-width: 600px;
+  padding: 40px 20px;
+}
+
+a {
+  color: $white;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.button,
+.auth-button,
+input[type=submit] {
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: none;
+  border: 1px solid $white;
+  color: $white;
+  text-decoration: none;
+
+  &:hover {
+    background: $white;
+    color: $blue
+  }
+}
+
+.button,
+.auth-button {
+  display: inline-block;
+}
+
+.auth-button {
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.display-i {
+  display: inline;
+}
+
+.display-b {
+  display: block;
+}
+
+.display-ib {
+  display: inline-block;
+}
+
+.float-l {
+  float: left;
+}
+
+
+.float-r {
+  float: right;
+}
+
+label {
+  margin-bottom: 5px;
+  display: block;
+}
+
+input[type=email],
+input[type=password] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  color: $black;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  color: $black;
+}
+
+input.boolean {
+  margin-right: 10px;
+}
+
+label.select {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+h4 {
+  margin-bottom: 10px;
+}
+
+.text-field {
+  margin-bottom: 10px;
+}
+
+.submit-field {
+  margin: 20px 0;
+}
